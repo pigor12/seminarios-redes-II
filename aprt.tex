@@ -9,20 +9,19 @@
 \usepackage{listings}
 \usepackage{circuitikz}
 \usepackage[brazil]{babel}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+
+\addbibresource{refs.bib}
 
 \lstset{
-  commentstyle=\color{gray},
-  keywordstyle=\color{blue},
-  stringstyle=\color{red},
   showstringspaces=false,
   captionpos=b,
   breaklines=true,
   language=Python,
   numbers=left,
-  numberstyle=\tiny\color{gray},
+  numberstyle=\tiny,
   tabsize=4
 }
-
 % ------- Meta -------
 \date{9 de março, 2024}
 \title[Seminário - Redes II]{Principais Ataques à Segurança da Informação na Atualidade}
@@ -41,24 +40,24 @@
 \begin{columns}
 \begin{column}{\textwidth}
 \begin{verbatim}
-                                  |&gt;&gt;&gt;
-                                  |
-                    |&gt;&gt;&gt;      _  _|_  _         |&gt;&gt;&gt;
-                    |        |;| |;| |;|        |
-                _  _|_  _    \\.    .  /    _  _|_  _
-               |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|
-               \\..      /    ||;   . |    \\.    .  /
-                \\.  ,  /     ||:  .  |     \\:  .  /
-                 ||:   |_   _ ||_ . _ | _   _||:   |
-                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |
-                 ||:   ||.    .     .      . ||:  .|
-                 ||: . || .     . .   .  ,   ||:   |       \,/
-                 ||:   ||:  ,  _______   .   ||: , |            /`\
-                 ||:   || .   /+++++++\    . ||:   |
-                 ||:   ||.    |+++++++| .    ||: . |
-              __ ||: . ||: ,  |+++++++|.  . _||_   |
-     ____--`~    '--~~__|.    |+++++__|----~    ~`---,
--~--~                   ~---__|,--~'                  ~~----_____-~'
+                                              |&gt;&gt;&gt;
+                                              |
+                                |&gt;&gt;&gt;      _  _|_  _         |&gt;&gt;&gt;
+                                |        |;| |;| |;|        |
+                            _  _|_  _    \\.    .  /    _  _|_  _
+                          |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|
+                          \\..      /    ||;   . |    \\.    .  /
+                            \\.  ,  /     ||:  .  |     \\:  .  /
+                            ||:   |_   _ ||_ . _ | _   _||:   |
+                            ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |
+                            ||:   ||.    .     .      . ||:  .|
+                            ||: . || .     . .   .  ,   ||:   |       \,/
+                            ||:   ||:  ,  _______   .   ||: , |            /`\
+                            ||:   || .   /+++++++\    . ||:   |
+                            ||:   ||.    |+++++++| .    ||: . |
+                          __ ||: . ||: ,  |+++++++|.  . _||_   |
+                ____--`~    '--~~__|.    |+++++__|----~    ~`---,
+            -~--~                   ~---__|,--~'                  ~~----_____-~'
 \end{verbatim}
 \end{column}
 \end{columns}
@@ -145,11 +144,11 @@
 \begin{column}{0.5\textwidth}
 \begin{itemize}
 	\item Bitcoin;
-	\item \textit{"Gold Victor"};
+	\item \textit{"Gold Victor"}\cite{tecnoblog_insomniac};
 	\item \textit{"Vice Society"};
 	\item \textit{Ransomware} com extorção dupla;
 	\item (Provável) Origem Russa, Bielorussa e Cazaquistanês;
-	\item De acordo com a CISA\footnote{Cybersecurity \& Infrastructure Security Agency}, surgiu em 2021;
+	\item De acordo com a CISA\footnote{Cybersecurity \& Infrastructure Security Agency}, surgiu em 2021\cite{cisa_advisory};
 \end{itemize}
 \end{column}
 \end{columns}
@@ -196,23 +195,54 @@
 \begin{frame}[fragile]{Modus operandi}
 \begin{center}
 \begin{lstlisting}[caption=Regras YARA fornecidas pela equipe do SentinelOne]
-rule rw_rhysida {
-    meta:
-      author = "Alex Delamotte"
-      description = "Rhysida ransomware detection."
-      sample = "69b3d913a3967153d1e91ba1a31ebed839b297ed"
-      reference = "https://s1.ai/rhys"
-    strings:
-      $typo1 = { 63 6D 64 2E 65 78 65 20 2F ... }
-      $cmd1 = { 63 6D 64 2E 65 78 65 20 2F 63 ... }
-      $cmd2 = { 63 6D 64 2E 65 78 65 20 2F 63 ... }
-      $byte1 = { 48 8D 05 72 AA 05 00 48 8B 00 8B ... }
-      $byte2 = { 48 8D 15 89 CF 03 00 48 89 C1 E8 ... }
-    condition:
-        2 of them
-}
+        rule rw_rhysida {
+            meta:
+              author      = "Alex Delamotte"
+              description = "Rhysida ransomware detection."
+              sample      = "69b3d913a3967153d1e91ba1a31ebed839b297ed"
+              reference   = "https://s1.ai/rhys"
+            strings:
+              $typo1 = { 63 6D 64 2E 65 78 65 20 2F ... }
+              $cmd1  = { 63 6D 64 2E 65 78 65 20 2F ... }
+              $cmd2  = { 63 6D 64 2E 65 78 65 20 2F ... }
+              $byte1 = { 48 8D 05 72 AA 05 00 48 8B ... }
+              $byte2 = { 48 8D 15 89 CF 03 00 48 89 ... }
+            condition:
+                2 of them
+        }
 \end{lstlisting}
 \end{center}
+\end{frame}
+\subsection{Ataque}
+\begin{frame}{Dia do ataque}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+    \item \textit{X-Men} (2030)\cite{ign_insomniac};
+	\item 50 Bitcoins\footnote{09/03, $\approx R\$17.296.275,91$};
+    \item 7 dias para reagir;
+    \item 1.6 TB de dados roubados\cite{engadget_insomniac};
+    \item \textit{Marvel’s Wolverine} (2026);
+    \item \textit{Venom: Lethal Protector} (2025)\cite{};
+    \item Planejamento de uma década liberado;
+	\item Confirmado no dia 12 de dezembro de 2023;
+    \item 98\% dos dados recolhidos foram publicados;
+    \item Passaportes e documentos governamentais de funcionários\cite{polygon_insomniac};
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}{Medidas preventivas}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+    \item Política \textit{Zero-Trust};
+    \item Autenticação de multifator;
+    \item Sistemas de \textit{anti-phishing}\cite{csoonline_antiphishing}\footnote{Avanan, Barracuda Sentinel, Cofense PDR, \dots};
+    \item Treinamento de funcionários;
+\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 \begin{frame}{Enunciado}
 	Qual das seguintes afirmações abaixo é verdadeira?
@@ -239,5 +269,8 @@ rule rw_rhysida {
 
 		\item \textbf{D)} As campanhas de \textit{ransomware}, como as conduzidas por grupos hackers incluindo Rhysida, são notáveis por evitar o uso de técnicas de engenharia social, preferindo explorar vulnerabilidades de software sem interação direta com as vítimas.
 	\end{itemize}
+\end{frame}
+\begin{frame}{Referências}
+  \printbibliography
 \end{frame}
 \end{document}
