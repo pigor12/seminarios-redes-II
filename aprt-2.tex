@@ -1,0 +1,183 @@
+\documentclass[bookmarks=false,aspectratio=169,9pt]{beamer}
+% ------- Tema -------
+\usetheme{LightConsole}
+% ------- Pacotes -------
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage[brazil]{babel}
+\usepackage[backend=biber,style=alphabetic,sorting=ynt]{biblatex}
+
+\addbibresource{refs.bib}
+
+\lstset{
+  showstringspaces=false,
+  captionpos=b,
+  breaklines=true,
+  language=Python,
+  numbers=left,
+  numberstyle=\tiny,
+  tabsize=4
+}
+% ------- Meta -------
+\date{10 de março, 2024}
+\title[Seminário - Redes II]{Principais Ataques à Segurança da Informação na Atualidade}
+\institute[Pontifícia Universidade Católica de Minas Gerais]{@pucminas}
+\author{j.martins\footnote{João Victor Martins Medeiros}-pigor\footnote{Pedro Igor Martins dos Reis}}
+\subtitle{Redes II}
+\hypersetup{
+    bookmarks=true,
+    colorlinks=true,
+    pdfpagemode=FullScreen,
+    pdfsubject={Seminário - Redes II},
+}
+% ------- Documento -------
+\begin{document}
+\begin{frame}[fragile]
+	\begin{verbatim}
+                                                        ^^
+                    ^^      ..                                       ..
+                            []                                       []
+                          .:[]:_          ^^                       ,:[]:.
+                        .: :[]: :-.                             ,-: :[]: :.
+                      .: : :[]: : :`._                       ,.': : :[]: : :.
+                    .: : : :[]: : : : :-._               _,-: : : : :[]: : : :.
+                _..: : : : :[]: : : : : : :-._________.-: : : : : : :[]: : : : :-._
+                _:_:_:_:_:_:[]:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:_:[]:_:_:_:_:_:_
+                !!!!!!!!!!!![]!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!![]!!!!!!!!!!!!!
+                ^^^^^^^^^^^^[]^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[]^^^^^^^^^^^^^
+                            []                                       []
+                            []                                       []
+                            []                                       []
+                 ~~^-~^_~^~/  \~^-~^~_~^-~_^~-^~_^~~-^~_~^~-~_~-^~_^/  \~^-~_~^-~~-
+                 ~ _~~- ~^-^~-^~~- ^~_^-^~~_ -~^_ -~_-~~^- _~~_~-^_ ~^-^~~-_^-~ ~^
+\end{verbatim}
+\end{frame}
+\begin{frame}
+	\titlepage
+\end{frame}
+\section{Caso \textit{Western Digital}}
+\subsection{Vítima}
+\begin{frame}[fragile]{Western Digital}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{verbatim}
+                              ########
+                            ####    ########
+                    ############    ##########
+                ############################
+              ############################
+          ##############################
+        ################################
+        ##########        ##############
+      ############          ##########
+      ##################    ##########
+      ##################    ########
+        ################    ######
+          ############          ####
+        ##########              ####
+        ####################      ######
+\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}{Western Digital\footnote{\href{https://www.westerndigital.com/}{https://www.westerndigital.com/}}}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Fundada em 1970;
+				\item Atuação em nível global;
+				\item 20B USD em valor de mercado;
+				\item Fabricante de diversas soluções de armazenamento;
+				\item Grupo formado por mais 4 subsidiárias:
+				      \begin{itemize}
+					      \item WD;
+					      \item WD\_Black;
+					      \item SanDisk;
+					      \item SanDisk Professional.
+				      \end{itemize}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+\subsection{Atacante}
+\begin{frame}[fragile]{Alphv, a.k.a BlackCat}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{verbatim}
+                  ##
+    ##            ####
+      ####          ####
+        ########        ####
+              ########  ######
+                  ################
+                  ##################
+                  ####################
+              ####      ######    ####
+              ######    ######      ##
+            ############################
+          ######      ########    ########  ##
+          ####################        ######
+          ##########  ##########    ##########
+        ########      ############      ######
+        ##########################          ##
+          ##############      ####
+          ##############        ######
+            ##########        ########
+\end{verbatim}
+		\end{column}
+	\end{columns}
+\end{frame}
+\subsection{Ataque}
+\begin{frame}{Dia do ataque}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item 26 de março de 2023;
+				\item 10TB de dados internos e SAP \textit{Backoffice} roubados\cite{bleepingcomputer_1};
+				\item Serviços em nuvem\footnote{My Cloud, My Cloud Home, My Cloud OS 5, \dots} temporariamente desligados;
+				\item \textit{"We know you have the link to our onion site. Approach with payment prepared, or **** off. Brace yourselves for the gradual fallout."}\cite{twitter};
+				\item \textit{"We will **** you until you cannot stand anymore Western Digital. Consider this our final warning."}\cite{techcrunch};
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+\begin{frame}{Medidas preventivas}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Treinamento de funcionários;
+				\item Auditorias internas regulares;
+				\item Estratégias de resposta a incidentes;
+				\item Fortalecimento de sua infraestrutura interna.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+\subsection{Desafio}
+\begin{frame}{Enunciado}
+	Considere o ataque cibernético sofrido pela Western Digital em 2023, qual das seguintes afirmações é \textbf{incorreta}?
+	\begin{itemize}
+		\item \textbf{A)} A Western Digital utilizou o incidente como uma oportunidade para melhorar suas práticas de segurança cibernética, implementando criptografia de arquivos em toda a sua rede como medida de proteção contra futuros ataques.
+		\item \textbf{B)} O grupo de \textit{ransomware} 'Alphv', também conhecido como 'BlackCat', assumiu a responsabilidade pelo ataque, utilizando o incidente para extorquir a empresa, ameaçando publicar os dados roubados.
+		\item \textbf{C)} O ataque resultou na exfiltração de aproximadamente 10 terabytes de dados da empresa, incluindo informações detalhadas de clientes, e os hackers exigiram um resgate de oito dígitos.
+		\item \textbf{D)} A Western Digital desativou temporariamente alguns de seus serviços para conter a ameaça e iniciou uma investigação com especialistas em cibersegurança e autoridades policiais.
+	\end{itemize}
+\end{frame}
+\begin{frame}{Resposta}
+	Considere o ataque cibernético sofrido pela Western Digital em 2023, qual das seguintes afirmações é \textbf{incorreta}?
+	\begin{itemize}
+		\item \textbf{A)} A Western Digital utilizou o incidente como uma oportunidade para melhorar suas práticas de segurança cibernética, implementando criptografia de arquivos em toda a sua rede como medida de proteção contra futuros ataques.
+		\item \textbf{B)} O grupo de \textit{ransomware} 'Alphv', também conhecido como 'BlackCat', assumiu a responsabilidade pelo ataque, utilizando o incidente para extorquir a empresa, ameaçando publicar os dados roubados.
+		\item \textcolor{green}{\textbf{C)} O ataque resultou na exfiltração de aproximadamente 10 terabytes de dados da empresa, incluindo informações detalhadas de clientes, e os hackers exigiram um resgate de oito dígitos.}
+		\item \textbf{D)} A Western Digital desativou temporariamente alguns de seus serviços para conter a ameaça e iniciou uma investigação com especialistas em cibersegurança e autoridades policiais.
+	\end{itemize}
+\end{frame}
+\subsection{Bibliografia}
+\begin{frame}{Referências}
+	\printbibliography
+\end{frame}
+\end{document}

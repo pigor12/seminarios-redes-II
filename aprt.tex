@@ -37,9 +37,9 @@
 % ------- Documento -------
 \begin{document}
 \begin{frame}[fragile]
-\begin{columns}
-\begin{column}{\textwidth}
-\begin{verbatim}
+	\begin{columns}
+		\begin{column}{\textwidth}
+			\begin{verbatim}
                                               |&gt;&gt;&gt;
                                               |
                                 |&gt;&gt;&gt;      _  _|_  _         |&gt;&gt;&gt;
@@ -59,8 +59,8 @@
                 ____--`~    '--~~__|.    |+++++__|----~    ~`---,
             -~--~                   ~---__|,--~'                  ~~----_____-~'
 \end{verbatim}
-\end{column}
-\end{columns}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}
 	\titlepage
@@ -68,9 +68,9 @@
 \section{Caso \textit{Insomniac Games}}
 \subsection{Vítima}
 \begin{frame}[fragile]{Insomniac Games, Inc.}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{verbatim}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{verbatim}
                             ### ##
                             #######
                ########### #########
@@ -89,34 +89,34 @@
     ################
                  #####
 \end{verbatim}
-\end{column}
-\end{columns}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Insomniac Games, Inc.\footnote{\href{https://insomniac.games/}{https://insomniac.games/}}}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-	\begin{itemize}
-		\item Fundada em 1994;
-		\item 400+ funcionários;
-		\item PlayStation Studios;
-		\item Xtreme Software, Inc.;
-		\item Desenvolvedora de jogos eletrônicos, como:
-		      \begin{itemize}
-			      \item \textit{Sunset Overdrive} (2014);
-			      \item \textit{Ratchet \& Clank} (2002-);
-			      \item \textit{Marvel's Spider-Man} (2018-);
-			      \item \textit{Spyro The Dragon} (1996-2000);
-			      \item \dots
-		      \end{itemize}
-	\end{itemize}
-\end{column}
-\end{columns}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Fundada em 1994;
+				\item 400+ funcionários;
+				\item PlayStation Studios;
+				\item Xtreme Software, Inc.;
+				\item Desenvolvedora de jogos eletrônicos, como:
+				      \begin{itemize}
+					      \item \textit{Sunset Overdrive} (2014);
+					      \item \textit{Ratchet \& Clank} (2002-);
+					      \item \textit{Marvel's Spider-Man} (2018-);
+					      \item \textit{Spyro The Dragon} (1996-2000);
+					      \item \dots
+				      \end{itemize}
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \subsection{Atacante}
 \begin{frame}[fragile]{Rhysida}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{verbatim}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{verbatim}
         ############################
       ###$######         ############
       ##$#$####              #########
@@ -136,65 +136,65 @@
   $ $        ###########
            ###########
 \end{verbatim}
-\end{column}
-\end{columns}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Rhysida}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-	\item Bitcoin;
-	\item \textit{"Gold Victor"}\cite{tecnoblog_insomniac};
-	\item \textit{"Vice Society"};
-	\item \textit{Ransomware} com extorção dupla;
-	\item (Provável) Origem Russa, Bielorussa e Cazaquistanês;
-	\item De acordo com a CISA\footnote{Cybersecurity \& Infrastructure Security Agency}, surgiu em 2021\cite{cisa_advisory};
-\end{itemize}
-\end{column}
-\end{columns}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Bitcoin;
+				\item \textit{"Gold Victor"};
+				\item \textit{"Vice Society"};
+				\item \textit{Ransomware} com extorção dupla;
+				\item (Provável) Origem Russa, Bielorussa e Cazaquistanês;
+				\item De acordo com a CISA\footnote{Cybersecurity \& Infrastructure Security Agency}, surgiu em 2021\cite{cisa_advisory};
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Modus operandi}
-\begin{figure}[!ht]
-\centering
-\resizebox{0.8\textwidth}{!}{%
-\begin{circuitikz}
-\tikzstyle{every node}=[font=\LARGE]
-\node [] at (-6,12.5) {Contato};
-\node [] at (-6,14.5) {\textit{Phishing}};
-\node [] at (2,12.5) {Movimento Lateral};
-\node [] at (2,14.5) {\textit{Cobalt Strike}};
-\node [] at (2,10.5) {PsExec};
-\node [] at (12,14.5) {\textit{Ransomware}};
-\node [] at (12,10.5) {Evasão};
-\node [] at (12,16.5) {Chave 4096-Bit\footnote{Criptografia RSA \& AES-CTR}};
-\node [] at (12,8.5) {\textit{Scripts}};
-\draw [->,  >=Stealth] (-4,12.5) -- (-1.25,12.5);
-\draw [<->, >=Stealth] (12,13.75) -- (12,11.25);
-\draw [](12,12.5)  to[short] (5,12.5);
-\draw [](-6,13.25) to[short, -o] (-6,14);
-\draw [](2,13.25)  to[short, -o] (2,14);
-\draw [](2,11.25)  to[short, o-] (2,12);
-\draw [](12,15.25) to[short, -o] (12,15.75);
-\draw [](12,9.25)  to[short, o-] (12,9.75);
-\end{circuitikz}
-}
-\end{figure}
+	\begin{figure}[!ht]
+		\centering
+		\resizebox{0.8\textwidth}{!}{%
+			\begin{circuitikz}
+				\tikzstyle{every node}=[font=\LARGE]
+				\node [] at (-6,12.5) {Contato};
+				\node [] at (-6,14.5) {\textit{Phishing}};
+				\node [] at (2,12.5) {Movimento Lateral};
+				\node [] at (2,14.5) {\textit{Cobalt Strike}};
+				\node [] at (2,10.5) {PsExec};
+				\node [] at (12,14.5) {\textit{Ransomware}};
+				\node [] at (12,10.5) {Evasão};
+				\node [] at (12,16.5) {Chave 4096-Bit\footnote{Criptografia RSA \& AES-CTR}};
+				\node [] at (12,8.5) {\textit{Scripts}};
+				\draw [->,  >=Stealth] (-4,12.5) -- (-1.25,12.5);
+				\draw [<->, >=Stealth] (12,13.75) -- (12,11.25);
+				\draw [](12,12.5)  to[short] (5,12.5);
+				\draw [](-6,13.25) to[short, -o] (-6,14);
+				\draw [](2,13.25)  to[short, -o] (2,14);
+				\draw [](2,11.25)  to[short, o-] (2,12);
+				\draw [](12,15.25) to[short, -o] (12,15.75);
+				\draw [](12,9.25)  to[short, o-] (12,9.75);
+			\end{circuitikz}
+		}
+	\end{figure}
 \end{frame}
 \begin{frame}[fragile]{Modus operandi}
-\begin{center}
-\begin{tabular}{c|p{9cm}}
-			\verb|conhost.exe|\footnote{O conhost é um arquivo executável legítimo do Windows} & Um binário de \textit{ransomware}. \\
-			\verb|psexec.exe|\footnote{Psexec também é uma ferramenta originalmente legítima da Microsoft} & Executa um processo local ou remotamente. \\
-			\verb|S_0.bat|     & Um \textit{script} para preparação de \textit{ransomware}.\\
-			\verb|1.ps1|       & Identifica os arquivos a serem criptografados.\\
-			\verb|S_1.bat|     & Copia \verb|conhost.exe| para \verb|C:\Windows\Temp|.\\
-			\verb|S_2.bat|     & Adiciona a extensão \verb|.Rhysida| em todo o ambiente.
+	\begin{center}
+		\begin{tabular}{c|p{9cm}}
+			\verb|conhost.exe|\footnote{O conhost é um arquivo executável legítimo do Windows}             & Um binário de \textit{ransomware}.                         \\
+			\verb|psexec.exe|\footnote{Psexec também é uma ferramenta originalmente legítima da Microsoft} & Executa um processo local ou remotamente.                  \\
+			\verb|S_0.bat|                                                                                 & Um \textit{script} para preparação de \textit{ransomware}. \\
+			\verb|1.ps1|                                                                                   & Identifica os arquivos a serem criptografados.             \\
+			\verb|S_1.bat|                                                                                 & Copia \verb|conhost.exe| para \verb|C:\Windows\Temp|.      \\
+			\verb|S_2.bat|                                                                                 & Adiciona a extensão \verb|.Rhysida| em todo o ambiente.
 		\end{tabular}
-\end{center}
+	\end{center}
 \end{frame}
 \begin{frame}[fragile]{Modus operandi}
-\begin{center}
-\begin{lstlisting}[caption=Regras YARA fornecidas pela equipe do SentinelOne]
+	\begin{center}
+		\begin{lstlisting}[caption=Regras YARA fornecidas pela equipe do SentinelOne]
         rule rw_rhysida {
             meta:
               author      = "Alex Delamotte"
@@ -211,38 +211,38 @@
                 2 of them
         }
 \end{lstlisting}
-\end{center}
+	\end{center}
 \end{frame}
 \subsection{Ataque}
 \begin{frame}{Dia do ataque}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-    \item \textit{X-Men} (2030)\cite{ign_insomniac};
-	\item 50 Bitcoins\footnote{09/03, $\approx R\$17.296.275,91$};
-    \item 7 dias para reagir;
-    \item 1.6 TB de dados roubados\cite{engadget_insomniac};
-    \item \textit{Marvel’s Wolverine} (2026);
-    \item \textit{Venom: Lethal Protector} (2025)\cite{};
-    \item Planejamento de uma década liberado;
-	\item Confirmado no dia 12 de dezembro de 2023;
-    \item 98\% dos dados recolhidos foram publicados;
-    \item Passaportes e documentos governamentais de funcionários\cite{polygon_insomniac};
-\end{itemize}
-\end{column}
-\end{columns}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item \textit{X-Men} (2030)\cite{ign_insomniac};
+				\item 50 Bitcoins\footnote{09/03, $\approx R\$17.296.275,91$};
+				\item 7 dias para reagir;
+				\item 1.6 TB de dados roubados\cite{engadget_insomniac};
+				\item \textit{Marvel’s Wolverine} (2026);
+				\item \textit{Venom: Lethal Protector} (2025)\cite{};
+				\item Planejamento de uma década liberado;
+				\item Confirmado no dia 12 de dezembro de 2023;
+				\item 98\% dos dados recolhidos foram publicados;
+				\item Passaportes e documentos governamentais de funcionários\cite{polygon_insomniac};
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Medidas preventivas}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{itemize}
-    \item Política \textit{Zero-Trust};
-    \item Autenticação de multifator;
-    \item Sistemas de \textit{anti-phishing}\cite{csoonline_antiphishing}\footnote{Avanan, Barracuda Sentinel, Cofense PDR, \dots};
-    \item Treinamento de funcionários;
-\end{itemize}
-\end{column}
-\end{columns}
+	\begin{columns}
+		\begin{column}{0.5\textwidth}
+			\begin{itemize}
+				\item Política \textit{Zero-Trust};
+				\item Autenticação de multifator;
+				\item Sistemas de \textit{anti-phishing}\cite{csoonline_antiphishing}\footnote{Avanan, Barracuda Sentinel, Cofense PDR, \dots};
+				\item Treinamento de funcionários;
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 \begin{frame}{Enunciado}
 	Qual das seguintes afirmações abaixo é verdadeira?
@@ -271,6 +271,6 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}{Referências}
-  \printbibliography
+	\printbibliography
 \end{frame}
 \end{document}
