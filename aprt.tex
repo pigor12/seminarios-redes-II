@@ -1,0 +1,243 @@
+\documentclass[bookmarks=false,aspectratio=169,9pt]{beamer}
+% ------- Tema -------
+\usetheme{DarkConsole}
+% ------- Pacotes -------
+\usepackage{xcolor}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{circuitikz}
+\usepackage[brazil]{babel}
+
+\lstset{
+  commentstyle=\color{gray},
+  keywordstyle=\color{blue},
+  stringstyle=\color{red},
+  showstringspaces=false,
+  captionpos=b,
+  breaklines=true,
+  language=Python,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  tabsize=4
+}
+
+% ------- Meta -------
+\date{9 de março, 2024}
+\title[Seminário - Redes II]{Principais Ataques à Segurança da Informação na Atualidade}
+\institute[Pontifícia Universidade Católica de Minas Gerais]{@pucminas}
+\author{j.martins\footnote{João Victor Martins Medeiros}-pigor\footnote{Pedro Igor Martins dos Reis}}
+\subtitle{Redes II}
+\hypersetup{
+    bookmarks=true,
+    colorlinks=true,
+    pdfpagemode=FullScreen,
+    pdfsubject={Seminário - Redes II},
+}
+% ------- Documento -------
+\begin{document}
+\begin{frame}[fragile]
+\begin{columns}
+\begin{column}{\textwidth}
+\begin{verbatim}
+                                  |&gt;&gt;&gt;
+                                  |
+                    |&gt;&gt;&gt;      _  _|_  _         |&gt;&gt;&gt;
+                    |        |;| |;| |;|        |
+                _  _|_  _    \\.    .  /    _  _|_  _
+               |;|_|;|_|;|    \\:. ,  /    |;|_|;|_|;|
+               \\..      /    ||;   . |    \\.    .  /
+                \\.  ,  /     ||:  .  |     \\:  .  /
+                 ||:   |_   _ ||_ . _ | _   _||:   |
+                 ||:  .|||_|;|_|;|_|;|_|;|_|;||:.  |
+                 ||:   ||.    .     .      . ||:  .|
+                 ||: . || .     . .   .  ,   ||:   |       \,/
+                 ||:   ||:  ,  _______   .   ||: , |            /`\
+                 ||:   || .   /+++++++\    . ||:   |
+                 ||:   ||.    |+++++++| .    ||: . |
+              __ ||: . ||: ,  |+++++++|.  . _||_   |
+     ____--`~    '--~~__|.    |+++++__|----~    ~`---,
+-~--~                   ~---__|,--~'                  ~~----_____-~'
+\end{verbatim}
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}
+	\titlepage
+\end{frame}
+\section{Caso \textit{Insomniac Games}}
+\subsection{Vítima}
+\begin{frame}[fragile]{Insomniac Games, Inc.}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{verbatim}
+                            ### ##
+                            #######
+               ########### #########
+             #########################
+           #############################
+          ###############################
+         #################################
+         ##################################
+         ##########################
+         #########################
+   ##############################
+ ##################################
+###        ###############   #######
+#############      #########    ##
+ #################     #####
+    ################
+                 #####
+\end{verbatim}
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}{Insomniac Games, Inc.\footnote{\href{https://insomniac.games/}{https://insomniac.games/}}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+	\begin{itemize}
+		\item Fundada em 1994;
+		\item 400+ funcionários;
+		\item PlayStation Studios;
+		\item Xtreme Software, Inc.;
+		\item Desenvolvedora de jogos eletrônicos, como:
+		      \begin{itemize}
+			      \item \textit{Sunset Overdrive} (2014);
+			      \item \textit{Ratchet \& Clank} (2002-);
+			      \item \textit{Marvel's Spider-Man} (2018-);
+			      \item \textit{Spyro The Dragon} (1996-2000);
+			      \item \dots
+		      \end{itemize}
+	\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+\subsection{Atacante}
+\begin{frame}[fragile]{Rhysida}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{verbatim}
+        ############################
+      ###$######         ############
+      ##$#$####              #########
+     ##$##$###                ########
+    ##$####$###               ########
+   ##$####$####               ########
+   ###$##$####               #########
+   Ø###$###Ø#               #########
+   ###$#$###               #########
+    #######               #########
+   #######               #########
+    ####               ##########
+     $               ###########
+    $              ###########
+    $            ###########
+   $           ###########
+  $ $        ###########
+           ###########
+\end{verbatim}
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}{Rhysida}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+	\item Bitcoin;
+	\item \textit{"Gold Victor"};
+	\item \textit{"Vice Society"};
+	\item \textit{Ransomware} com extorção dupla;
+	\item (Provável) Origem Russa, Bielorussa e Cazaquistanês;
+	\item De acordo com a CISA\footnote{Cybersecurity \& Infrastructure Security Agency}, surgiu em 2021;
+\end{itemize}
+\end{column}
+\end{columns}
+\end{frame}
+\begin{frame}{Modus operandi}
+\begin{figure}[!ht]
+\centering
+\resizebox{0.8\textwidth}{!}{%
+\begin{circuitikz}
+\tikzstyle{every node}=[font=\LARGE]
+\node [] at (-6,12.5) {Contato};
+\node [] at (-6,14.5) {\textit{Phishing}};
+\node [] at (2,12.5) {Movimento Lateral};
+\node [] at (2,14.5) {\textit{Cobalt Strike}};
+\node [] at (2,10.5) {PsExec};
+\node [] at (12,14.5) {\textit{Ransomware}};
+\node [] at (12,10.5) {Evasão};
+\node [] at (12,16.5) {Chave 4096-Bit\footnote{Criptografia RSA \& AES-CTR}};
+\node [] at (12,8.5) {\textit{Scripts}};
+\draw [->,  >=Stealth] (-4,12.5) -- (-1.25,12.5);
+\draw [<->, >=Stealth] (12,13.75) -- (12,11.25);
+\draw [](12,12.5)  to[short] (5,12.5);
+\draw [](-6,13.25) to[short, -o] (-6,14);
+\draw [](2,13.25)  to[short, -o] (2,14);
+\draw [](2,11.25)  to[short, o-] (2,12);
+\draw [](12,15.25) to[short, -o] (12,15.75);
+\draw [](12,9.25)  to[short, o-] (12,9.75);
+\end{circuitikz}
+}
+\end{figure}
+\end{frame}
+\begin{frame}[fragile]{Modus operandi}
+\begin{center}
+\begin{tabular}{c|p{9cm}}
+			\verb|conhost.exe|\footnote{O conhost é um arquivo executável legítimo do Windows} & Um binário de \textit{ransomware}. \\
+			\verb|psexec.exe|\footnote{Psexec também é uma ferramenta originalmente legítima da Microsoft} & Executa um processo local ou remotamente. \\
+			\verb|S_0.bat|     & Um \textit{script} para preparação de \textit{ransomware}.\\
+			\verb|1.ps1|       & Identifica os arquivos a serem criptografados.\\
+			\verb|S_1.bat|     & Copia \verb|conhost.exe| para \verb|C:\Windows\Temp|.\\
+			\verb|S_2.bat|     & Adiciona a extensão \verb|.Rhysida| em todo o ambiente.
+		\end{tabular}
+\end{center}
+\end{frame}
+\begin{frame}[fragile]{Modus operandi}
+\begin{center}
+\begin{lstlisting}[caption=Regras YARA fornecidas pela equipe do SentinelOne]
+rule rw_rhysida {
+    meta:
+      author = "Alex Delamotte"
+      description = "Rhysida ransomware detection."
+      sample = "69b3d913a3967153d1e91ba1a31ebed839b297ed"
+      reference = "https://s1.ai/rhys"
+    strings:
+      $typo1 = { 63 6D 64 2E 65 78 65 20 2F ... }
+      $cmd1 = { 63 6D 64 2E 65 78 65 20 2F 63 ... }
+      $cmd2 = { 63 6D 64 2E 65 78 65 20 2F 63 ... }
+      $byte1 = { 48 8D 05 72 AA 05 00 48 8B 00 8B ... }
+      $byte2 = { 48 8D 15 89 CF 03 00 48 89 C1 E8 ... }
+    condition:
+        2 of them
+}
+\end{lstlisting}
+\end{center}
+\end{frame}
+\begin{frame}{Enunciado}
+	Qual das seguintes afirmações abaixo é verdadeira?
+	\begin{itemize}
+
+		\item \textbf{A)} Grupos hackers, incluindo \textit{Rhysida}, empregam técnicas de phishing como seu principal meio de ganhar acesso a sistemas de informação, visando especificamente indivíduos através de e-mails falsos que parecem ser de fontes legítimas.
+
+		\item \textbf{B)} O \textit{ransomware} é um tipo de \textit{malware} que, uma vez instalado em um sistema de computador, criptografa arquivos do usuário e exige um pagamento em criptomoeda para a descriptografia, mas não permite aos hackers acesso aos sistemas afetados ou dados.
+
+		\item \textbf{C)} Grupos como \textit{Rhysida} operam exclusivamente por motivos financeiros, evitando alvos que possam ter significativas repercussões sociais ou políticas para minimizar a atenção das autoridades de aplicação da lei.
+
+		\item \textbf{D)} As campanhas de \textit{ransomware}, como as conduzidas por grupos hackers incluindo Rhysida, são notáveis por evitar o uso de técnicas de engenharia social, preferindo explorar vulnerabilidades de software sem interação direta com as vítimas.
+	\end{itemize}
+\end{frame}
+\begin{frame}{Resposta Correta}
+	Qual das seguintes afirmações abaixo é verdadeira?
+	\begin{itemize}
+
+		\item \textcolor{green}{\textbf{A)} Grupos hackers, incluindo \textit{Rhysida}, empregam técnicas de phishing como seu principal meio de ganhar acesso a sistemas de informação, visando especificamente indivíduos através de e-mails falsos que parecem ser de fontes legítimas.}
+
+		\item \textbf{B)} O \textit{ransomware} é um tipo de \textit{malware} que, uma vez instalado em um sistema de computador, criptografa arquivos do usuário e exige um pagamento em criptomoeda para a descriptografia, mas não permite aos hackers acesso aos sistemas afetados ou dados.
+
+		\item \textbf{C)} Grupos como \textit{Rhysida} operam exclusivamente por motivos financeiros, evitando alvos que possam ter significativas repercussões sociais ou políticas para minimizar a atenção das autoridades de aplicação da lei.
+
+		\item \textbf{D)} As campanhas de \textit{ransomware}, como as conduzidas por grupos hackers incluindo Rhysida, são notáveis por evitar o uso de técnicas de engenharia social, preferindo explorar vulnerabilidades de software sem interação direta com as vítimas.
+	\end{itemize}
+\end{frame}
+\end{document}
